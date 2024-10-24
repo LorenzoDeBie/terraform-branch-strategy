@@ -8,12 +8,12 @@ variable "env_prefix" {
   description = "environment prefix for all resources"
 }
 
-# variable "postgres_admin_password" {
-#   type = string
-#   sensitive = true
-# }
+variable "postgres_admin_password" {
+  type = string
+  sensitive = true
+}
 
-# variable "postgres_server_zone" {
-#   type = string
-#   default = "2"
-# }
+variable "postgres_server_zone" {
+  type = string
+  default = "2"
+}
