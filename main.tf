@@ -2,13 +2,17 @@ data "azurerm_resource_group" "rg-tfworkshops" {
   name = "Terraform-workshops"
 }
 
-# resource "azurerm_virtual_network" "vn" {
-#   resource_group_name = data.azurerm_resource_group.rg-tfworkshops.name
-#   location            = data.azurerm_resource_group.rg-tfworkshops.location
+locals {
+  location = "westeurope"
+}
 
-#   name          = "${var.prefix}-${var.env_prefix}-vn"
-#   address_space = ["10.0.0.0/8"]
-# }
+resource "azurerm_virtual_network" "vn" {
+  resource_group_name = data.azurerm_resource_group.rg-tfworkshops.name
+  location            = local.location
+
+  name          = "${var.prefix}-${var.env_prefix}-vn"
+  address_space = ["10.0.0.0/8"]
+}
 
 # module "aks" {
 #   source = "./modules/aks"
